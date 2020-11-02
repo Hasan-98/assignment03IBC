@@ -26,56 +26,6 @@ func ReceiveChain(conn net.Conn) *Block {
 
 }
 
-func StartListening(portNo string, user string) {
-
-}
-
-func main() {
-	//it is better to check for arguments length and throw error
-	satoshiAddress := os.Args[1]
-	myListeningAddress := os.Args[2]
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	//The function below launches the server, uses different second argument
-	//It then starts a routine for each connection request received
-	//go StartListening(myListeningAddress, "others")
-	//StartListening(myListeningAddress, "others")
-	//log.Println("Sending my listening address to Satoshi")
-	//Satoshi is there waiting for our address, it stores it somehow
-	//WriteString(conn, myListeningAddress)
-
-	//once the satoshi unblocks on Quorum completion it sends peer to connect to
-	//log.Println("receiving peer to connect to ... ")
-	//receivedString := ReadString(conn)
-	//log.Println(receivedString)
-
-	//Then satoshi sends the chain with x+1 blocks
-	//log.Println("receiving Chain")
-	chainHead := ReceiveChain(conn)
-	log.Println(CalculateBalance("Satoshi", chainHead))
-
-	//Each node then connects to the other peer info received from satoshi
-	//The topology eventually becomes a ring topology
-	//Each node then both writes the hello world to the connected peer
-	//and also receives the one from another peer
-
-	//log.Println("connecting to the other peer ... ", receivedString, "hamza", "mohtasim")
-	//ad := ":" + receivedString
-	//log.Println("connecting to the other peer ... ", ad)
-
-	/*	peerConn, err1 := net.Dial("tcp", receivedString)
-
-		if err1 != nil {
-			log.Println(err1)
-		} else {
-			fmt.Fprintf(peerConn, "Hello From %v to %v\n", myListeningAddress, receivedString)
-		}*/
-	select {}
-}
-
 /////////////////////////////////////////  blockchain code    /////////////////////////////////////////////////////
 
 const miningReward = 100
