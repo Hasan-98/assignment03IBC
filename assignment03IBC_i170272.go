@@ -261,9 +261,9 @@ func StartListening(listen string, name string) {
 	}
 
 }
-func ReceiveChain(conn net.Conn) *Block {
+func ReceiveChain(conn net.Conn) Block {
 
-	var recvdBlock *Block
+	var recvdBlock Block
 
 	dec := gob.NewDecoder(conn)
 	err := dec.Decode(&recvdBlock)
